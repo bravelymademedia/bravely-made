@@ -964,3 +964,13 @@ button {
     transform: none;
   }
 }
+
+.load-more-button {
+  display: block;
+  width: fit-content;
+  margin: 4rem auto 0;
+}
+
+.load-more-button[hidden] {
+  display: none;
+}
