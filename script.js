@@ -96,7 +96,7 @@ contactForm.addEventListener("submit", (event) => {
 
 const filmCards = Array.from(document.querySelectorAll(".film-card"));
 const loadMoreButton = document.querySelector("[data-load-more]");
-const filmsPerPage = 6;
+const filmsPerPage = 7;
 
 let visibleFilmCount = filmsPerPage;
 
@@ -106,7 +106,8 @@ function updateVisibleFilms() {
   });
 
   if (loadMoreButton) {
-    loadMoreButton.hidden = visibleFilmCount >= filmCards.length;
+    const hasMoreFilms = visibleFilmCount < filmCards.length;
+    loadMoreButton.hidden = !hasMoreFilms;
   }
 }
 
