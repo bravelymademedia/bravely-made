@@ -428,7 +428,8 @@ button {
 }
 
 .film-details p,
-.film-details span {
+.film-details span,
+.film-details a {
   color: rgba(255, 255, 255, 0.55);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
@@ -442,8 +443,18 @@ button {
   line-height: 1.25;
 }
 
-.film-details span {
+.film-details span,
+.film-details a {
   color: var(--magenta-light);
+}
+
+.film-details a {
+  text-decoration: none;
+}
+
+.film-details a:hover,
+.film-details a:focus-visible {
+  text-decoration: underline;
 }
 
 .manifesto {
