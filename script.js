@@ -94,4 +94,29 @@ contactForm.addEventListener("submit", (event) => {
     `mailto:bravelymademedia@gmail.com?subject=${subject}&body=${body}`;
 });
 
+const filmCards = Array.from(document.querySelectorAll(".film-card"));
+const loadMoreButton = document.querySelector("[data-load-more]");
+const filmsPerPage = 6;
+
+let visibleFilmCount = filmsPerPage;
+
+function updateVisibleFilms() {
+  filmCards.forEach((card, index) => {
+    card.hidden = index >= visibleFilmCount;
+  });
+
+  if (loadMoreButton) {
+    loadMoreButton.hidden = visibleFilmCount >= filmCards.length;
+  }
+}
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener("click", () => {
+    visibleFilmCount += filmsPerPage;
+    updateVisibleFilms();
+  });
+}
+
+updateVisibleFilms();
+
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
