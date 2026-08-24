@@ -77,17 +77,32 @@ modal.addEventListener("close", () => {
 });
 
 // A static website cannot send email by itself, so this prepares a message
-// in the visitor's preferred email app.
+// Prepare a polished project inquiry in the visitor's preferred email app.
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formData = new FormData(contactForm);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const project = formData.get("project");
-  const subject = encodeURIComponent(`Project inquiry from ${name}`);
+  const name = formData.get("name").trim();
+  const email = formData.get("email").trim();
+  const project = formData.get("project").trim();
+
+  const subject = encodeURIComponent(
+    `New Bravely Made Media project inquiry from ${name}`
+  );
+
   const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nProject details:\n${project}`
+`Hi Daniel,
+
+I'm reaching out through the Bravely Made Media website about a potential project.
+
+Name: ${name}
+Email: ${email}
+
+Project details:
+${project}
+
+Thanks,
+${name}`
   );
 
   window.location.href =
